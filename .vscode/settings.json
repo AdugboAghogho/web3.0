@@ -1,0 +1,19 @@
+{
+    // Configure glob patterns for excluding files and folders.
+    // For example, the File Explorer decides which files and folders to show or hide based on this setting. Refer to the `search.exclude` setting to define search-specific excludes.
+    "files.exclude": {
+        "**/node_modules/": true,
+        "another_large_folder_to_ignore": true
+    },
+    // Configure paths or glob patterns to exclude from file watching.
+    "files.watcherExclude": {
+        "**/node_modules/": true,
+        "another_large_folder_to_ignore": true
+    },
+    // Configure glob patterns for excluding files and folders in fulltext searches and quick open. Inherits all glob patterns from the `files.exclude` setting.
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    }
+}
