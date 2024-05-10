@@ -1,35 +1,19 @@
-const main = async () => {
-  const transactionsFactory = await hre.ethers.getContractFactory("Transactions");
-  const transactionsContract = await transactionsFactory.deploy();
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
-  await transactionsContract.deployed();
+describe("Greeter", function () {
+  it("Should return the new greeting once it's changed", async function () {
+    const Greeter = await ethers.getContractFactory("Greeter");
+    const greeter = await Greeter.deploy("Hello, world!");
+    await greeter.deployed();
 
-  console.log("Transactions address: ", transactionsContract.address);
-};
+    expect(await greeter.greet()).to.equal("Hello, world!");
 
-const runMain = async () => {
-  try {
-    await main();
-    process.exit(0);
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
-};
+    const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
 
-runMain();
+    // wait until the transaction is mined
+    await setGreetingTx.wait();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    expect(await greeter.greet()).to.equal("Hola, mundo!");
+  });
+});

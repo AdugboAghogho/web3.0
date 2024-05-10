@@ -35,11 +35,3 @@ contract Transactions {
         return transactionCount;
     }
 }
-
-
-
-
-
-
-
-
