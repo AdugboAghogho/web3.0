@@ -16,7 +16,7 @@ const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword,
       sm:min-w-[270px]
       sm:max-w-[300px]
       min-w-full
-      flex-col p-3 rounded-[3rem] hover:shadow-2xl"
+      flex-col p-3 rounded-[3rem] hover:bg-neutral-700 hover:shadow-[50px] ease-3s"
     >
       <div className="flex flex-col items-center w-full mt-3">
         <div className="display-flex justify-start w-full mb-6 p-2">
