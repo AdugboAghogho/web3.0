@@ -21,13 +21,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const connectWallet = () => {}
-  const currentAccount = () => {}
-  const handleChange = () => {}
-  const sendTransaction = () => {}
-  const  formData = () => {}
-  const isLoading = () => {}
-  // const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+  const { currentAccount, connectWallet, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
@@ -51,7 +45,7 @@ const Welcome = () => {
             Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
           </p>
 
-          {/* {!currentAccount && ( */}
+          {!currentAccount && (
             <button
               type="button"
               onClick={connectWallet}
@@ -62,21 +56,21 @@ const Welcome = () => {
                 Connect Wallet
               </p>
             </button>
-          {/* )} */}
+          )}
 
-          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
-            <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
+          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10 hover:scale-[1.1]">
+            <div className={`rounded-tl-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
               Reliability
             </div>
-            <div className={companyCommonStyles}>Security</div>
-            <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
+            <div className={`hover:scale-[1.1] ${companyCommonStyles}`}>Security</div>
+            <div className={`sm:rounded-tr-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
               Ethereum
             </div>
-            <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
+            <div className={`sm:rounded-bl-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
               Web 3.0
             </div>
-            <div className={companyCommonStyles}>Low Fees</div>
-            <div className={`rounded-br-2xl ${companyCommonStyles}`}>
+            <div className={`hover:scale-[1.1] ${companyCommonStyles}`}>Low Fees</div>
+            <div className={`rounded-br-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
               Blockchain
             </div>
           </div>
@@ -95,8 +89,7 @@ const Welcome = () => {
               
               <div>
                 <p className="text-white font-light text-sm">
-                  {/* {shortenAddress(currentAccount)} */}
-                    Address
+                  {shortenAddress(currentAccount)}
                 </p>
                 <p className="text-white font-semibold text-lg mt-1">
                   Ethereum
@@ -114,8 +107,8 @@ const Welcome = () => {
 
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-            {/* {isLoading */}
-            {false
+            {isLoading
+                // {false
               ? <Loader />
               : (
                 <button
