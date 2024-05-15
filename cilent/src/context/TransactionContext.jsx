@@ -82,7 +82,7 @@ export const TransactionsProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
 
-      throw new Error("No ethereum object");
+      throw new Error("No ethereum object3");
     }
   };
 
@@ -97,7 +97,7 @@ export const TransactionsProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
 
-      throw new Error("No ethereum object");
+      throw new Error("No ethereum object2");
     }
   };
 
@@ -113,7 +113,7 @@ export const TransactionsProvider = ({ children }) => {
           params: [{
             from: currentAccount,
             to: addressTo,
-            gas: "0x5208", // 2100 GWEI
+            gas: "0x5208",
             value: parsedAmount._hex,
           }],
         });
@@ -131,12 +131,12 @@ export const TransactionsProvider = ({ children }) => {
         setTransactionCount(transactionsCount.toNumber());
         window.location.reload();
       } else {
-        console.log("No ethereum object");
+        console.log("No ethereum object1");
       }
     } catch (error) {
       console.log(error);
 
-      throw new Error("No ethereum object");
+      throw new Error("No ethereum object5");
     }
   };
 

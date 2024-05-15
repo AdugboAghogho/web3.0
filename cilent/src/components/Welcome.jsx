@@ -21,7 +21,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { currentAccount, connectWallet, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
+  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
@@ -40,11 +40,9 @@ const Welcome = () => {
           <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">
             Send Crypto <br /> across the world
           </h1>
-
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
             Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
           </p>
-
           {!currentAccount && (
             <button
               type="button"
@@ -58,19 +56,19 @@ const Welcome = () => {
             </button>
           )}
 
-          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10 hover:scale-[1.1]">
-            <div className={`rounded-tl-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
+          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
+            <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
               Reliability
             </div>
-            <div className={`hover:scale-[1.1] ${companyCommonStyles}`}>Security</div>
-            <div className={`sm:rounded-tr-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
+            <div className={companyCommonStyles}>Security</div>
+            <div className={`sm:rounded-tr-2xl ${companyCommonStyles}`}>
               Ethereum
             </div>
-            <div className={`sm:rounded-bl-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
+            <div className={`sm:rounded-bl-2xl ${companyCommonStyles}`}>
               Web 3.0
             </div>
-            <div className={`hover:scale-[1.1] ${companyCommonStyles}`}>Low Fees</div>
-            <div className={`rounded-br-2xl hover:scale-[1.1] ${companyCommonStyles}`}>
+            <div className={companyCommonStyles}>Low Fees</div>
+            <div className={`rounded-br-2xl ${companyCommonStyles}`}>
               Blockchain
             </div>
           </div>
@@ -83,10 +81,8 @@ const Welcome = () => {
                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
                   <SiEthereum fontSize={21} color="#fff" />
                 </div>
-
                 <BsInfoCircle fontSize={17} color="#fff" />
               </div>
-              
               <div>
                 <p className="text-white font-light text-sm">
                   {shortenAddress(currentAccount)}
@@ -97,8 +93,6 @@ const Welcome = () => {
               </div>
             </div>
           </div>
-
-
           <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
             <Input placeholder="Address To" name="addressTo" type="text" handleChange={handleChange} />
             <Input placeholder="Amount (ETH)" name="amount" type="number" handleChange={handleChange} />
@@ -108,7 +102,6 @@ const Welcome = () => {
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
             {isLoading
-                // {false
               ? <Loader />
               : (
                 <button
