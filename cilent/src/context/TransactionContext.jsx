@@ -8,6 +8,10 @@ export const TransactionContext = React.createContext();
 const { ethereum } = window;
 
 const createEthereumContract = () => {
+  if (!ethereum || !ethereum.isMetaMask) {
+    throw new Error('MetaMask not found or not installed.');
+  }
+
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const transactionsContract = new ethers.Contract(contractAddress, contractABI, signer);
